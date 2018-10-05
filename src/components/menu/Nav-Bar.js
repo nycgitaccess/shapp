@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
  
-const NavBar = ()=>{
+const NavBar = () => {
     return(
         <div>
-            hello
+            <h1>HI</h1>
         </div>
     )
 
