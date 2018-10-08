@@ -1,37 +1,4 @@
-.App {
-  width: 700px;
-  height: 400px;
-  background: #ebebeb;
-  margin: 30px auto;
-  text-align: center;
-  padding: 0;
-  display: flex;
-  border: #82858e solid 1px;
+body {
+  font-family: sans-serif;
+  background-color: grey;
 }
-.menu{
-  background: #45303c;
-  width: 200px;
-  margin: 0;
-}
-.menu ul{
-  list-style: none;
-  padding: 30px;
-  margin: 0;
-}
-.menu ul li{
- margin-top: 10px;
- color: #bdb7bb;
-}
-
-.logo{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  text-align: center;
-  background: #82858e;
-  font-weight: bold;
-  color: white;
-  
-}
-
-
