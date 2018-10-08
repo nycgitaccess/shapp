@@ -16,7 +16,7 @@ class FilterField extends Component {
 
         this.state = {
             value : '',
-            values : ['', ...props.properties]
+            values : ['Filter By...', ...props.properties]
         }
 
     }
@@ -33,15 +33,14 @@ class FilterField extends Component {
     displayOptions = () => {
         let options = this.state.values.map((item, i) => {
             console.log(item);
-            if (i === 0) return <option key={i} value='' style={{color:'#ebebeb'}}>Filter By...</option>
-            else return <option key={i} value={item}>{item}</option>
+            return <option key={i} value={item}>{item}</option>
         })
         return options;
     }
 
     render(){
         return(
-            <div className="custom-select">
+            <div className="custom-select" style={{width:'200px'}}>
                 <select
                     value={this.state.value}
                     onChange={this.handleChange}

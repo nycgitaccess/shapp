@@ -11,7 +11,13 @@ class PageHeader extends Component {
         super(props);
 
         this.state = {
-            values : [...props.properties]
+            values : [...props.properties],
+            otherValues : [
+                'Athens',
+                'Paris',
+                'Thessaliniki',
+                'Berlin'
+            ]
         }
 
     }
@@ -44,6 +50,7 @@ class PageHeader extends Component {
             <div style={headerStyle}>
                 <p>Search field</p>
                 <FilterField properties={this.state.values}/>
+                <FilterField properties={this.state.otherValues}/>
                 <p>count      add filter button</p>
             </div>
         )
