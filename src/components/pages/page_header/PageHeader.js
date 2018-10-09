@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import FilterField from './Filter';
+import FilterField from './filterselectors/Filter';
 import './PageHeader.css';
 
 // the PageHeader needs to be an object component,
@@ -11,13 +11,7 @@ class PageHeader extends Component {
         super(props);
 
         this.state = {
-            values : [...props.properties],
-            otherValues : [
-                'Athens',
-                'Paris',
-                'Thessaliniki',
-                'Berlin'
-            ]
+            values : [...props.properties]
         }
 
     }
@@ -50,7 +44,6 @@ class PageHeader extends Component {
             <div style={headerStyle}>
                 <p>Search field</p>
                 <FilterField properties={this.state.values}/>
-                <FilterField properties={this.state.otherValues}/>
                 <p>count      add filter button</p>
             </div>
         )
