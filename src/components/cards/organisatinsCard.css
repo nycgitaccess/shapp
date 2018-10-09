@@ -1,0 +1,31 @@
+.organisatinCard {
+  margin-bottom: 3px;
+  max-width: 980px;
+  min-height: 147px;
+  display: flex;
+  font-size: 18px;
+  /* line-height: 2.5; */
+  color: #787878;
+  background-color: #ffffff;
+}
+.organisatinCard__left {
+  flex: 1 1 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.organisatinCard__center {
+  flex: 1 1 580px;
+  display: flex;
+  flex-direction: column;
+}
+.organisatinCard__right {
+  flex: 1 1 250px;
+}
+.btn {
+  padding: 3px 5px;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  background-color: #4a2b3a;
+}
