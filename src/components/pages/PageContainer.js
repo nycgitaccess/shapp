@@ -10,20 +10,38 @@ class PageContainer extends Component {
     constructor(props){
         super(props);
 
-        // The Page Container will contain the state,
-        // with the references to the cards, allowing to filter the Cards
-        // This is temporary.
+        // the page is the name of the page.
+        // It will be passed to the page_body, to display the according cards.
+        // page: this.props.page,
+        //
+        // the filters are stocked here. when there's a filter added,
+        // the page_body will be refreshed accordingly.
+        //
+        // the search stocks the string of the search.
+        // on submit change, it will be passed to the page_body, to filter the results.
+        //
+        // the results stock the number of results, so it can be displayed in the page_header.
         this.state = {
-            cards:[],
-            properties:[
-                'country',
-                'city',
-                'name',
-                'date'
-            ]
+            page: "trainings",
+            filters: [],
+            searchWord: null,
+            results: 0
         }
         
 
+    }
+
+    addFilter(filter){
+        // the filter is an object containing the category and the option.
+        this.setState( (prevstate) => ({
+            filters: [...prevstate.filter, filter]
+        }))
+    }
+
+    handleSearch(word){
+        this.setState({
+            searchWord: word
+        })
     }
 
     componentDidMount(){
@@ -42,8 +60,14 @@ class PageContainer extends Component {
 
         return(
             <div style={pageStyle}>
-                <PageHeader properties={this.state.properties}/>
-                <hr/>
+                <PageHeader
+                    page={this.state.page}
+                    results={this.state.results}
+                    filters={this.state.filters}
+                    addFilter={this.addFilter}
+                    searchWord={this.searchWord}
+                    handleSearch={this.handleSearch}
+                />
                 <PageBody />
             </div>
         )

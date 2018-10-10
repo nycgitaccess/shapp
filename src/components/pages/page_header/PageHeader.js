@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
+// COMPONENTS
 import FilterField from './filterselectors/Filter';
+import SearchField from './searchfield/SearchField';
+
+// CSS
 import './PageHeader.css';
 
 // the PageHeader needs to be an object component,
@@ -10,30 +14,26 @@ class PageHeader extends Component {
     constructor(props){
         super(props);
 
+        // PROPS:
+        // page={this.state.page}
+        // results={this.state.results}
+        // filters={this.state.filters}
+        // addFilter={this.addFilter}
+        // searchWord={this.searchWord}
+        // handleSearch={this.handleSearch}
+        
         this.state = {
-            values : [...props.properties]
+            page: this.props.page,
+            results: this.props.results,
+            filters: this.props.filters,
+            addFilter: this.props.addFilter,
+            searchWord: this.props.searchWord,
+            handleSearch: this.props.handleSearch
         }
-
     }
 
-    handleChange = (event) => {
-        this.setState({value: event.target.value});
-        console.log(this.state.value);
-    }
-
-    displayOptions = () => {
-        let options = this.state.values.map((item, i) => {
-            console.log(item);
-            if (i === 0) return <option key={i} value='' style={{color:'#ebebeb'}}>Filter By...</option>
-            else return <option key={i} value={item}>{item}</option>
-        })
-        return options;
-    }
-
-    addFilter = () => {
-        // Add a filter to this.state.filterlist
-        // then a filter is active (displays the second select)
-        // or inactive ('Filter By...', no second select.)
+    componentDidMount(){
+        console.log(this.props.page);
     }
 
     render(){
@@ -42,8 +42,9 @@ class PageHeader extends Component {
         }
         return(
             <div style={headerStyle}>
-                <p>Search field</p>
-                <FilterField properties={this.state.values}/>
+                <SearchField />
+
+                {/* <FilterField properties={this.state.values}/> */}
                 <p>count      add filter button</p>
             </div>
         )
