@@ -1,9 +1,9 @@
 import React from 'react';
-
+import './Manage.css';
 const Manage = () => {
     return(
-        <div>
-            Manage
+        <div className="contentManage">
+          
         </div>
     )
 }
