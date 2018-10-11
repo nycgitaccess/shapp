@@ -1,0 +1,29 @@
+.trainingCard {
+  margin-bottom: 3px;
+  max-width: 980px;
+  min-height: 193px;
+  display: flex;
+  font-size: 18px;
+  /* line-height: 2.5; */
+  color: #787878;
+  background-color: #ffffff;
+}
+
+.trainingCard__left {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.trainingCard__center {
+  flex: 1 1 480px;
+  display: flex;
+  flex-direction: column;
+}
+.trainingCard__right {
+  flex: 1 1 300px;
+}
+
+.flag {
+  margin: 0 5px;
+}
