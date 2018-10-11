@@ -22,13 +22,30 @@ class PageContainer extends Component {
         //
         // the results stock the number of results, so it can be displayed in the page_header.
         this.state = {
+            url: "https://api.myjson.com/bins/166978",
             page: "trainings",
             filters: [],
             searchWord: null,
-            results: 0
+            results: 0,
+            data : null
         }
         
 
+    }
+
+    componentDidMount(){
+        fetch(this.state.url)
+        .then(response => response.json())
+        .then(data => {
+            this.setState({
+                data,
+                results: data[this.state.page].length
+            })
+            console.log(this.state.data);
+            console.log(this.state.results);
+            }
+        )
+        .catch(error => console.log(error.message));
     }
 
     addFilter(filter){
@@ -44,10 +61,6 @@ class PageContainer extends Component {
         })
     }
 
-    componentDidMount(){
-        // call to db. Fill the state with the data.
-    }
-
     render(){
         const pageStyle = {
             position: 'fixed',
@@ -61,6 +74,7 @@ class PageContainer extends Component {
         return(
             <div style={pageStyle}>
                 <PageHeader
+                    url={this.state.url}
                     page={this.state.page}
                     results={this.state.results}
                     filters={this.state.filters}

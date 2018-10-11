@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // COMPONENTS
 import FilterField from './filterselectors/Filter';
 import SearchField from './searchfield/SearchField';
+import ResultCount from './ResultCount';
 
 // CSS
 import './PageHeader.css';
@@ -23,6 +24,7 @@ class PageHeader extends Component {
         // handleSearch={this.handleSearch}
         
         this.state = {
+            url: this.props.url,
             page: this.props.page,
             results: this.props.results,
             filters: this.props.filters,
@@ -30,10 +32,6 @@ class PageHeader extends Component {
             searchWord: this.props.searchWord,
             handleSearch: this.props.handleSearch
         }
-    }
-
-    componentDidMount(){
-        console.log(this.props.page);
     }
 
     render(){
@@ -45,6 +43,7 @@ class PageHeader extends Component {
                 <SearchField />
 
                 {/* <FilterField properties={this.state.values}/> */}
+                <ResultCount results={this.props.results} page={this.props.page}/>
                 <p>count      add filter button</p>
             </div>
         )
