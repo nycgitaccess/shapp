@@ -1,4 +1,4 @@
-.organisatinCard {
+.organisationCard {
   margin-bottom: 3px;
   max-width: 980px;
   min-height: 147px;
@@ -8,18 +8,18 @@
   color: #787878;
   background-color: #ffffff;
 }
-.organisatinCard__left {
+.organisationCard__left {
   flex: 1 1 250px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.organisatinCard__center {
+.organisationCard__center {
   flex: 1 1 580px;
   display: flex;
   flex-direction: column;
 }
-.organisatinCard__right {
+.organisationCard__right {
   flex: 1 1 250px;
 }
 .btn {
