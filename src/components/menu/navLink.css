@@ -1,0 +1,18 @@
+.myLinks to{
+    text-decoration: none;
+}
+.myLinks ul{
+    list-style: none;
+}
+.myLinks  li{
+    padding-top: 5px;
+}
+.myLinks ul li:last-child{
+    padding-top: 30px;
+    font-weight: bolder;
+    color: #bdb7bb;
+}
+.myLinks ul li:last-child:hover{
+    cursor: pointer;
+    color: #fff;
+}

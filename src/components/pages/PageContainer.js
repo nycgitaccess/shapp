@@ -10,24 +10,55 @@ class PageContainer extends Component {
     constructor(props){
         super(props);
 
-        // The Page Container will contain the state,
-        // with the references to the cards, allowing to filter the Cards
-        // This is temporary.
+        // the page is the name of the page.
+        // It will be passed to the page_body, to display the according cards.
+        // page: this.props.page,
+        //
+        // the filters are stocked here. when there's a filter added,
+        // the page_body will be refreshed accordingly.
+        //
+        // the search stocks the string of the search.
+        // on submit change, it will be passed to the page_body, to filter the results.
+        //
+        // the results stock the number of results, so it can be displayed in the page_header.
         this.state = {
-            cards:[],
-            properties:[
-                'country',
-                'city',
-                'name',
-                'date'
-            ]
+            url: "https://api.myjson.com/bins/166978",
+            page: "trainings",
+            filters: [],
+            searchWord: null,
+            results: 0,
+            data : null
         }
         
 
     }
 
     componentDidMount(){
-        // call to db. Fill the state with the data.
+        fetch(this.state.url)
+        .then(response => response.json())
+        .then(data => {
+            this.setState({
+                data,
+                results: data[this.state.page].length
+            })
+            console.log(this.state.data);
+            console.log(this.state.results);
+            }
+        )
+        .catch(error => console.log(error.message));
+    }
+
+    addFilter(filter){
+        // the filter is an object containing the category and the option.
+        this.setState( (prevstate) => ({
+            filters: [...prevstate.filter, filter]
+        }))
+    }
+
+    handleSearch(word){
+        this.setState({
+            searchWord: word
+        })
     }
 
     render(){
@@ -42,8 +73,15 @@ class PageContainer extends Component {
 
         return(
             <div style={pageStyle}>
-                <PageHeader properties={this.state.properties}/>
-                <hr/>
+                <PageHeader
+                    url={this.state.url}
+                    page={this.state.page}
+                    results={this.state.results}
+                    filters={this.state.filters}
+                    addFilter={this.addFilter}
+                    searchWord={this.searchWord}
+                    handleSearch={this.handleSearch}
+                />
                 <PageBody />
             </div>
         )

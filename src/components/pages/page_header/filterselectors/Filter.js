@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 
-//import './filter.css';
-
 // the PageHeader needs to be an object component,
 // to keep track of the selections.
 
